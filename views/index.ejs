@@ -21,30 +21,62 @@
     <link rel="stylesheet" href="css/style.css" />
     <!-- Closing head tag -->
   </head>
+  <!-- Opening body tag which will contain the elements that appear in the UI of the website -->
   <body>
+    <!-- h1 (header) element -->
     <h1>Todo List:</h1>
+    <!-- opening tag for an unordered list -->
     <ul class="todoItems">
+      <!-- ejs which allows you to loop through all the items (which were passed in from the server.js with a value of todoItems) -->
       <% for(let i=0; i < items.length; i++) {%>
+      <!-- opening tag for a list item -->
       <li class="item">
+        <!-- ejs which uses a conditional to check if an item is completed -->
         <% if(items[i].completed === true) {%>
-        <span class="completed"><%= items[i].thing %></span>
+        <!-- opening span tag for completed item -->
+        <span class="completed">
+          <!-- ejs which inserts data of the item -->
+          <%= items[i].thing %>
+          <!-- closing span tag -->
+        </span>
+        <!-- ejs else statement if above doesn't evaluate to true -->
         <% }else{ %>
-        <span><%= items[i].thing %></span>
+        <!-- opening span tag for uncompleted item -->
+        <span>
+          <!-- ejs which inserts data of the item -->
+          <%= items[i].thing %>
+        </span>
+        <!-- closing ejs tag for else codeblock -->
         <% } %>
+        <!-- span which will have the trash aka delete icon -->
         <span class="fa fa-trash"></span>
+        <!-- closing list item tag -->
       </li>
+      <!-- closing ejs tag for the for loop -->
       <% } %>
+      <!-- closing tag for the unordered list -->
     </ul>
+    <!-- h2 (header) tag -->
+    <h2>
+      Left to do:
+      <!-- ejs showing left data passed in from the server.js with a value of itemsLeft -->
+      <%= left %>
+      <!-- closing h2 tag -->
+    </h2>
 
-    <h2>Left to do: <%= left %></h2>
-
+    <!-- h2 (header) tag -->
     <h2>Add A Todo:</h2>
-
+    <!-- opening form tag with the route that the POST request will be sent to. To be handled by server.js when sent -->
     <form action="/addTodo" method="POST">
+      <!-- test input -->
       <input type="text" placeholder="Thing To Do" name="todoItem" />
+      <!-- submit button -->
       <input type="submit" />
+      <!-- closing form tag -->
     </form>
-
+    <!-- loading main.js after all of above has been added to the DOM -->
     <script src="js/main.js"></script>
+    <!-- closing body tag -->
   </body>
+  <!-- closing html tag -->
 </html>
