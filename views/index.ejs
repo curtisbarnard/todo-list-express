@@ -1,47 +1,61 @@
+<!-- Declare HTML version so browser parses doc correctly -->
 <!DOCTYPE html>
+<!-- Opening html tag which with language attribute set to english -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open tag for the head of the page which contains metadata and stylesheet links -->
+  <head>
+    <!-- Telling browser the character set in the page is UTF-8  -->
+    <meta charset="UTF-8" />
+    <!-- Used for supporting older versions of Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Optimizing how the site scales for mobile devices Set's the width to device screen width and sets the scaling on initial page load to 1 (no scaling) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the page, will appear in the browser tab -->
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <!-- Importing font-awesome minified css stylesheet to use icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Importing main site stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Closing head tag -->
+  </head>
+  <body>
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Todo List: </h1>
-    <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
-        <li class="item">
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <h1>Todo List:</h1>
+        <ul class="todoItems">
+          <% for(let i=0; i < items.length; i++) {%>
+          <li class="item">
             <% if(items[i].completed === true) {%>
-                <span class='completed'><%= items[i].thing %></span>
+            <span class="completed"><%= items[i].thing %></span>
             <% }else{ %>
-                <span><%= items[i].thing %></span>
-            <% } %>    
-            <span class='fa fa-trash'></span>
-        </li>
-    <% } %>
-    </ul>
+            <span><%= items[i].thing %></span>
+            <% } %>
+            <span class="fa fa-trash"></span>
+          </li>
+          <% } %>
+        </ul>
 
-    <h2>Left to do: <%= left %></h2>
+        <h2>Left to do: <%= left %></h2>
 
-    <h2>Add A Todo:</h2>
+        <h2>Add A Todo:</h2>
 
-    <form action="/addTodo" method="POST">
-        <input type="text" placeholder="Thing To Do" name="todoItem">
-        <input type="submit">
-    </form>
-    
+        <form action="/addTodo" method="POST">
+          <input type="text" placeholder="Thing To Do" name="todoItem" />
+          <input type="submit" />
+        </form>
 
-    <script src='js/main.js'></script>
-</body>
+        <script src="js/main.js"></script>
+      </body>
+    </html>
+  </body>
 </html>
